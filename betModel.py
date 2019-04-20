@@ -46,20 +46,14 @@ if __name__ == '__main__':
     ratios = [ratioA, ratioB]
 
     probabilities = getProbabilities(ratioA, ratioB)
+    betA = [1, 1, 1]
+    betB = [1, 1, 1]
+    bets = [betA, betB]
+    result = buildExpectations(teams, probabilities, ratios, bets)
+    for key, value in result.items():
+        print(key,value)
 
-    temp = 0
-    info = Info()
-    for bAwin in range(0.1, 1.1, 0.1):
-        for bAdraw in range(0.1, 1.1, 0.1):
-            for bAlose in range(0.1, 1.1, 0.1):
-                for bBwin in range(0.1, 1.1, 0.1):
-                    for bBdraw in range(0.1, 1.1, 0.1):
-                        for bBlose in range(0.1, 1.1, 0.1):
-                            betA = [bAwin, bAdraw, bAlose]
-                            betB = [bBwin, bBdraw, bBlose]
-                            bets = [betA, betB]
-                            result = buildExpectations(teams, probabilities, ratios, bets)
-                            dic = findMin(result)
+
 
 
 
